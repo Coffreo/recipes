@@ -1,0 +1,22 @@
+monolog:
+    handlers:
+        main:
+            type: stream
+            path: "%env(COFFREO_SF_LOG)%"
+            formatter: monolog.formatter.all
+            level: debug
+            process_psr_3_messages: false
+            channels: ["!event"]
+        console:
+            type: console
+            process_psr_3_messages: false
+            channels: ["!event", "!doctrine", "!console"]
+
+monolog.formatter.all:
+        class: Monolog\Formatter\LineFormatter
+        arguments:
+            - "%%datetime%% [%%level_name%%] | %%message%% | %%context%% | %%extra%%\n"
+            - "Y-m-d\\TH:i:s.uP"
+            - false
+            - false
+
