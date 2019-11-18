@@ -6,8 +6,8 @@
         "Symfony\\Bundle\\MonologBundle\\MonologBundle": ["all"]
     },
     "composer-scripts": {
-        "rm config/packages/dev/monolog.yaml": "script",
-        "rm config/packages/prod/monolog.yaml": "script",
-        "rm config/packages/test/monolog.yaml": "script"
+        "rm %CONFIG_DIR%/packages/dev/monolog.yaml": "script",
+        "rm %CONFIG_DIR%/packages/prod/monolog.yaml": "script",
+        "rm %CONFIG_DIR%/packages/test/monolog.yaml": "script"
     }
 }
