@@ -4,5 +4,10 @@
     },
     "bundles": {
         "Symfony\\Bundle\\MonologBundle\\MonologBundle": ["all"]
+    },
+    "composer-scripts": {
+        "rm config/packages/dev/monolog.yaml": "script",
+        "rm config/packages/prod/monolog.yaml": "script",
+        "rm config/packages/test/monolog.yaml": "script"
     }
 }

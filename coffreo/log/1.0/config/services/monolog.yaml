@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false
+
+    monolog.formatter.all:
+        class: Monolog\Formatter\LineFormatter
+        arguments:
+            - "%%datetime%% [%%level_name%%] | %%message%% | %%context%% | %%extra%%\n"
+            - "Y-m-d\\TH:i:s.uP"
+            - false
+            - false
+
