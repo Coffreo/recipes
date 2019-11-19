@@ -3,7 +3,7 @@ monolog:
         main:
             type: stream
             path: "%env(COFFREO_SF_LOG)%"
-            formatter: monolog.formatter.all
+            formatter: monolog.formatter.prod
             level: debug
             process_psr_3_messages: false
             channels: ["!event"]

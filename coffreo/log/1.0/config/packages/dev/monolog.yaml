@@ -2,8 +2,8 @@ monolog:
     handlers:
         main:
             type: stream
-            path: "%env(COFFREO_SF_LOG)%"
-            formatter: monolog.formatter.all
+            path: '%kernel.logs_dir%/%kernel.environment%.log'
+            formatter: monolog.formatter.dev
             level: debug
             process_psr_3_messages: false
             channels: ["!event"]

@@ -4,7 +4,7 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         public: false
 
-    monolog.formatter.all:
+    monolog.formatter.prod:
         class: Monolog\Formatter\LineFormatter
         arguments:
             - "%%datetime%% [%%level_name%%] | %%message%% | %%context%% | %%extra%%\n"
@@ -12,3 +12,10 @@ services:
             - false
             - false
 
+    monolog.formatter.dev:
+        class: Monolog\Formatter\LineFormatter
+        arguments:
+            - " >    %%datetime%% [%%level_name%%] %%message%%\n >>   %%extra.class%%:%%extra.function%%:%%extra.line%%\n >>>  %%extra.referrer%% - %%extra.http_method%% %%extra.url%%\n >>>> %%context%%\n\n"
+            - "H:i:s"
+            - false
+            - false
