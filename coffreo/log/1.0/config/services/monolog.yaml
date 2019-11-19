@@ -4,6 +4,18 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         public: false
 
+    Monolog\Processor\WebProcessor:
+        tags:
+            - { name: monolog.processor }
+
+    Monolog\Processor\IntrospectionProcessor:
+        tags:
+            - { name: monolog.processor }
+
+    Monolog\Processor\PsrLogMessageProcessor:
+        tags:
+            - { name: monolog.processor }
+
     monolog.formatter.prod:
         class: Monolog\Formatter\LineFormatter
         arguments:
