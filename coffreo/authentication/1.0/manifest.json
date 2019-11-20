@@ -1,5 +1,5 @@
 {
-  "bundles": {
-    "Coffreo\\Bundle\\AuthenticationBundle\\CoffreoAuthenticationBundle": ["all"]
-  }
+    "bundles": {
+        "Coffreo\\Bundle\\AuthenticationBundle\\CoffreoAuthenticationBundle": ["all"]
+    }
 }
