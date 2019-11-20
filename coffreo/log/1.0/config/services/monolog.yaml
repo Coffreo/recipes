@@ -1,0 +1,33 @@
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false
+
+    Monolog\Processor\WebProcessor:
+        tags:
+            - { name: monolog.processor }
+
+    Monolog\Processor\IntrospectionProcessor:
+        tags:
+            - { name: monolog.processor }
+
+    Monolog\Processor\PsrLogMessageProcessor:
+        tags:
+            - { name: monolog.processor }
+
+    monolog.formatter.prod:
+        class: Monolog\Formatter\LineFormatter
+        arguments:
+            - "%%datetime%% [%%level_name%%] | %%message%% | %%context%% | %%extra%%\n"
+            - "Y-m-d\\TH:i:s.uP"
+            - false
+            - false
+
+    monolog.formatter.dev:
+        class: Monolog\Formatter\LineFormatter
+        arguments:
+            - " >    %%datetime%% [%%level_name%%] %%message%%\n >>   %%extra.class%%:%%extra.function%%:%%extra.line%%\n >>>  %%extra.referrer%% - %%extra.http_method%% %%extra.url%%\n >>>> %%context%%\n\n"
+            - "H:i:s"
+            - false
+            - false
