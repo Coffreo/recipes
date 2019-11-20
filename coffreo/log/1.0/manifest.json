@@ -1,7 +1,6 @@
 {
     "copy-from-recipe": {
-        "config/": "%CONFIG_DIR%/",
-        ".cenv-modules": ".cenv-modules"
+        "config/": "%CONFIG_DIR%/"
     },
     "bundles": {
         "Symfony\\Bundle\\MonologBundle\\MonologBundle": ["all"]
