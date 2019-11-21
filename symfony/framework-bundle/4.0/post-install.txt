@@ -6,5 +6,4 @@
     1. cd <PROJECT-NAME>
     2. docker run --rm -it -v "$PWD":/app -w /app composer php bin/console app:init-project
 
-
   * <fg=blue>Read</> the documentation at <comment>https://git.coffreo.com/coffreo/symfony-skeleton</>
