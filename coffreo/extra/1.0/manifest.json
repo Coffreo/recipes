@@ -1,6 +1,6 @@
 {
     "copy-from-recipe": {
-        "root/": "%CONFIG_DIR%/../"
+        "root/": "./"
     }
 }
 
