@@ -37,7 +37,7 @@ codeAnalysis-sonarqube:
         - docker
     stage: quality
     cache:
-      {}
+        {}
     script:
         - sonar-scanner -Dsonar.host.url=http://sonar.k8s.coffreo.camp -Dsonar.login=admin -Dsonar.password=admin
     allow_failure: true
@@ -48,7 +48,7 @@ qa:
         - docker
     stage: quality
     cache:
-      {}
+        {}
     script:
         - ENV=dev make --file=./.container/Makefile image-build-sandbox image-qa
     allow_failure: true
