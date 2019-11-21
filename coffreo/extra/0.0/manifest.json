@@ -1,0 +1,6 @@
+{
+    "copy-from-package": {
+        "root/": "%ROOT_DIR%/"
+    }
+}
+
