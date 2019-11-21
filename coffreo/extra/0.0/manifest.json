@@ -1,6 +1,0 @@
-{
-    "copy-from-package": {
-        "root/": "%CONFIG_DIR%/../"
-    }
-}
-
