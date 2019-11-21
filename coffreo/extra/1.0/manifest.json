@@ -1,5 +1,5 @@
 {
-    "copy-from-package": {
+    "copy-from-recipe": {
         "root/": "%CONFIG_DIR%/../"
     }
 }

@@ -1,0 +1,7 @@
+{
+    "name": "symfony-skeleton",
+    "description": "Coffreo's symfony app skeleton",
+    "version": "0.0.1",
+    "license": "proprietary",
+    "private": true
+}
