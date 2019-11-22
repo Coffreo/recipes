@@ -13,8 +13,8 @@
         "\n## Show phpstan review\nphpstan:\n\t@printf \"\\n\\n\\n\\n\"\n\t@read -p \"Show phpstan review:\"\n\t./vendor/bin/phpstan analyse src tests --level max",
         "\n## Launch all qa reviews\nqa:\tunused insights phpstan"
     ],
-  "post-install-output": [
-    "hey"
-  ]
+    "post-install-output": [
+        "hey"
+    ]
 }
 
