@@ -1,6 +1,11 @@
 {
     "copy-from-recipe": {
         "root/": "./"
-    }
+    },
+    "makefile": [
+        "install: build",
+        "health:\n\techo \"Not implemented yet\"",
+        "unused:\n\t@printf \"\\n\\n\\n\\n\"\n\t@read -p \"Show composer unused dependencies:\"\n\tcomposer unused"
+    ]
 }
 
