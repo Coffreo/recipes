@@ -3,9 +3,15 @@
         "root/": "./"
     },
     "makefile": [
-        "install: build",
-        "health:\n\techo \"Not implemented yet\"",
-        "unused:\n\t@printf \"\\n\\n\\n\\n\"\n\t@read -p \"Show composer unused dependencies:\"\n\tcomposer unused"
+        "\n## Generate environment variables\nenv:\n\tcenv --output .env.local -d .cenv-modules\n\techo \"APP_ENV=${ENV}\" >> .env.local\n\tcat .env >> .env.local",
+        "\n## (re)Build a project\nbuild:\n\tcomposer validate\nifeq (${ENV}, dev)\n\t[[ ${BUILDING} == false ]] && SYMFONY_ENV=${ENV} ${COMPOSER_CMD} || SYMFONY_ENV=${ENV} ${COMPOSER_CMD} --no-scripts\nelse\n\t[[ ${BUILDING} == false ]] && SYMFONY_ENV=${ENV} ${COMPOSER_CMD} || SYMFONY_ENV=${ENV} ${COMPOSER_CMD} --no-scripts --no-dev\nendif",
+        "\n## Initialize a project from scratch\ninstall: build",
+        "\n## Run application tests\ntest:\n\techo \"Not implemented yet\"",
+        "\n## Perform precommit task (build translation, cs, test, ...)\nit: build test",
+        "\n## Show composer unused dependencies\nunused:\n\t@printf \"\\n\\n\\n\\n\"\n\t@read -p \"Show composer unused dependencies:\"\n\tcomposer unused",
+        "\n## Show phpinsights review\ninsights:\n\t@printf \"\\n\\n\\n\\n\"\n\t@read -p \"Show phpinsights review:\"\n\t./vendor/bin/phpinsights --no-interaction",
+        "\n## Show phpstan review\nphpstan:\n\t@printf \"\\n\\n\\n\\n\"\n\t@read -p \"Show phpstan review:\"\n\t./vendor/bin/phpstan analyse src tests --level max",
+        "\n## Launch all qa reviews\nqa:\tunused insights phpstan"
     ]
 }
 
