@@ -12,6 +12,13 @@
         "\n## Show phpinsights review\ninsights:\n\t@printf \"\\n\\n\\n\\n\"\n\t@read -p \"Show phpinsights review:\"\n\t./vendor/bin/phpinsights --no-interaction",
         "\n## Show phpstan review\nphpstan:\n\t@printf \"\\n\\n\\n\\n\"\n\t@read -p \"Show phpstan review:\"\n\t./vendor/bin/phpstan analyse src tests --level max",
         "\n## Launch all qa reviews\nqa:\tunused insights phpstan"
+    ],
+    "gitignore": [
+        ".idea/",
+        "### image scan trivy###\nimage-scan.txt",
+        "deploy.env",
+        ".container/deploy/*/deployed.yaml",
+        "/vendor/"
     ]
 }
 
