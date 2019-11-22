@@ -2,8 +2,13 @@
 <bg=blue;fg=white> What's next? </>
 <bg=blue;fg=white>              </>
 
-  * <fg=blue>Run</> your application:
+  * <fg=blue>Initialize</> your application:
     1. cd <PROJECT-NAME>
     2. docker run --rm -it -v "$PWD":/app -w /app composer php bin/console app:init-project
+
+  * <fg=blue>Run</> your application:
+    1. makec image-build-sandbox
+    2. makec dev
+    3. makec tp
 
   * <fg=blue>Read</> the documentation at <comment>https://git.coffreo.com/coffreo/symfony-skeleton</>
