@@ -1,5 +1,5 @@
 bases:
-  - ../base
+    - ../base
 resources:
-  - deployment-blackfire.yaml
-  - service-blackfire.yaml
+    - deployment-blackfire.yaml
+    - service-blackfire.yaml

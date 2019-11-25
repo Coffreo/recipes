@@ -1,66 +1,66 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ${APP_NAME}-deployment
-  labels:
-    app: ${APP_NAME}
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: ${APP_NAME}
-  template:
-    metadata:
-      labels:
+    name: ${APP_NAME}-deployment
+    labels:
         app: ${APP_NAME}
-        time: epoch_${CURRENT_TIME}
-    spec:
-      imagePullSecrets:
-        - name: regcred
-      volumes:
-        - name: sock
-          emptyDir: {}
-        - name: parametersenv
-          configMap:
-            name: ${APP_NAME}
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: ${APP_NAME}
+    template:
+        metadata:
+            labels:
+                app: ${APP_NAME}
+                time: epoch_${CURRENT_TIME}
+        spec:
+            imagePullSecrets:
+                -   name: regcred
+            volumes:
+                -   name: sock
+                    emptyDir: {}
+                -   name: parametersenv
+                    configMap:
+                        name: ${APP_NAME}
 
-      containers:
-        - name: fpm
-          image: ${IMAGE}:${TAG}
-          command: ["/bin/sh"]
-          args: ["-c", "php-fpm7 -F"]
-          imagePullPolicy: Always
-          resources:
-            limits:
-              memory: 512Mi
-              cpu: "500m"
-            requests:
-              memory: 256Mi
-              cpu: "250m"
-          envFrom:
-            - configMapRef:
-                name: ${APP_NAME}
-          volumeMounts:
-            - mountPath: /var/www/${APP_NAME}/${ENV_FILE}
-              subPath: ${ENV_FILE}
-              name: parametersenv
-            - mountPath: /var/run
-              name: sock
+            containers:
+                -   name: fpm
+                    image: ${IMAGE}:${TAG}
+                    command: ["/bin/sh"]
+                    args: ["-c", "php-fpm7 -F"]
+                    imagePullPolicy: Always
+                    resources:
+                        limits:
+                            memory: 512Mi
+                            cpu: "500m"
+                        requests:
+                            memory: 256Mi
+                            cpu: "250m"
+                    envFrom:
+                        -   configMapRef:
+                                name: ${APP_NAME}
+                    volumeMounts:
+                        -   mountPath: /var/www/${APP_NAME}/${ENV_FILE}
+                            subPath: ${ENV_FILE}
+                            name: parametersenv
+                        -   mountPath: /var/run
+                            name: sock
 
-        - name: nginx
-          image: ${IMAGE}:${TAG}
-          command: ["/bin/sh"]
-          args: ["-c", "nginx -g 'daemon off;'"]
-          imagePullPolicy: Always
-          resources:
-            limits:
-              memory: 512Mi
-              cpu: "500m"
-            requests:
-              memory: 256Mi
-              cpu: "250m"
-          ports:
-            - containerPort: 8080
-          volumeMounts:
-            - mountPath: /var/run
-              name: sock
+                -   name: nginx
+                    image: ${IMAGE}:${TAG}
+                    command: ["/bin/sh"]
+                    args: ["-c", "nginx -g 'daemon off;'"]
+                    imagePullPolicy: Always
+                    resources:
+                        limits:
+                            memory: 512Mi
+                            cpu: "500m"
+                        requests:
+                            memory: 256Mi
+                            cpu: "250m"
+                    ports:
+                        -   containerPort: 8080
+                    volumeMounts:
+                        -   mountPath: /var/run
+                            name: sock

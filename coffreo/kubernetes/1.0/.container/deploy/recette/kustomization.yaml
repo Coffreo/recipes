@@ -1,7 +1,7 @@
 bases:
-  - ../base
+    - ../base
 commonAnnotations:
-  env: recette
+    env: recette
 patchesStrategicMerge:
-  - ingress.yaml
+    - ingress.yaml
 

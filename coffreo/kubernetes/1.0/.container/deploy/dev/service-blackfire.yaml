@@ -5,8 +5,8 @@ metadata:
 spec:
     type: NodePort
     ports:
-        - port: 8707
-          protocol: TCP
-          name: blackfire
+        -   port: 8707
+            protocol: TCP
+            name: blackfire
     selector:
         app: blackfire
