@@ -1,9 +1,0 @@
-{
-    "copy-from-recipe": {
-        "config/": "%CONFIG_DIR%/"
-    },
-    "aliases": [
-        "coffreo-configuration-rest-client",
-        "configuration-rest-client"
-    ]
-}

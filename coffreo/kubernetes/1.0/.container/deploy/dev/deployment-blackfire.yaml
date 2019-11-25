@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: blackfire-deployment
+    labels:
+        app: blackfire-deployment
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: blackfire
+    template:
+        metadata:
+            labels:
+                app: blackfire
+                version: v1
+        spec:
+            containers:
+                -   name: blackfire
+                    image: blackfire/blackfire
+                    resources:
+                        requests:
+                            memory: "64Mi"
+                            cpu: "250m"
+                        limits:
+                            memory: "128Mi"
+                            cpu: "500m"
+                    imagePullPolicy: Always
+                    env:
+                        -   name: BLACKFIRE_SERVER_ID
+                            value: "dfe2d9bf-0a91-44a1-947e-5ce6b2977414"
+                        -   name: BLACKFIRE_SERVER_TOKEN
+                            value: "9e73e8c8f68cb150a4d6cadad91e956fa1eb2ca418556e594c20e2039f1fee5a"
+                        -   name: BLACKFIRE_LOG_LEVEL
+                            value: "4"
+                    ports:
+                        -   containerPort: 8707
