@@ -1,9 +1,0 @@
-{
-    "aliases": ["redis"],
-    "copy-from-recipe": {
-        "config/": "%CONFIG_DIR%/"
-    },
-    "bundles": {
-        "Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle": ["all"]
-    }
-}

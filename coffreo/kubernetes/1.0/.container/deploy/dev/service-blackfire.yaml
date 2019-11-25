@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: blackfire
+spec:
+    type: NodePort
+    ports:
+        - port: 8707
+          protocol: TCP
+          name: blackfire
+    selector:
+        app: blackfire

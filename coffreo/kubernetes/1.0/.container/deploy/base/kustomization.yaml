@@ -1,0 +1,5 @@
+#https://github.com/kubernetes-sigs/kustomize/blob/master/docs/kustomization.yaml
+resources:
+  - deployment.yaml
+  - ingress.yaml
+  - service.yaml
