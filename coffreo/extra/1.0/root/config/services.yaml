@@ -20,13 +20,3 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
-
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
-    monolog.formatter.all:
-        class: Monolog\Formatter\LineFormatter
-        arguments:
-            - "%%datetime%% [%%level_name%%] | %%message%% | %%context%% | %%extra%%\n"
-            - "Y-m-d\\TH:i:s.uP"
-            - false
-            - false
