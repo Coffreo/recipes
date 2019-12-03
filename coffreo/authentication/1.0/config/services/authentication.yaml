@@ -1,0 +1,5 @@
+services:
+    app.coffreo_user_provider:
+        class: App\Security\UserProvider
+        tags:
+        - { name: "coffreo_authentication.user_provider"}
